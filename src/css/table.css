@@ -28,3 +28,38 @@
     border-top-left-radius:0.5px;
     color: white;
   }
+
+.pagination-control{
+  /* width: 100%; */
+  display: table;
+  color: rgb(0, 0, 0);
+  
+}
+.size-control,.page-button,.page-info
+{
+  display: table-cell;
+  vertical-align: middle;
+  padding-right:15px;
+}
+
+/* .size-control{
+  font-size: 10px; 
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;  
+} */
+.page-button button{
+  color: rgb(0, 0, 0);
+  border: 1px solid #C7C7C7;
+  background-color: #f3f2f2;
+  border-radius:10px;
+  padding: 3px 3px 3px 3px;
+  font-family:sans-serif;
+  margin-left:5px;
+}
+.page-button button:hover{
+  color: rgb(0, 0, 0);
+  border: 1px solid #C7C7C7;
+  background-color: #c8c8c8;
+}

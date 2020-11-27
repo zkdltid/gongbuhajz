@@ -69,7 +69,12 @@ class Topik2Vocabulary extends React.Component {
   render() {
     return (
       <div className='table'>
-        <div>
+        <div className='pagination-control'>
+          <div className='page-button'>
+            <button onClick={this.handlePrevButon}>Prev Page</button>
+            <button onClick={this.handleNextButon}>Next Page</button>
+          </div>
+          <div className='size-control'>
             <select value={this.state.size} onChange={this.handleChange}>
               <option value='10'>10</option>
               <option value="20">20</option>
@@ -77,14 +82,11 @@ class Topik2Vocabulary extends React.Component {
               <option value="40">40</option>
               <option value="50">50</option>
             </select>
-          <button onClick={this.handlePrevButon}>
-            Prev Page
-          </button>
-          <button onClick={this.handleNextButon}>
-            Next Page
-          </button>
-          <div>Page Index : {this.state.page_index}</div>
-          <div>Total Count : {this.state.total}</div>
+          </div>
+          <div className='page-info'>
+            <div>Page Index : {this.state.page_index}</div>
+            <div>Total Count : {this.state.total}</div>
+          </div>
           {/* <div>Page Index : {this.state.page_index}</div> */}
         </div>
         <div className='table'>
