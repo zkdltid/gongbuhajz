@@ -1,8 +1,12 @@
 .table {
+  margin-top: 1em;
   display: table;
   width: 100%;
   .table-row {
     display: table-row;
+    .table-cell:first-child{
+        width: 5%;
+    }
     .table-cell {
         width: 20%;
         display: table-cell;
@@ -12,7 +16,7 @@
         padding: 3px 3px 3px 3px;
         font-size: 20px;
         font-family: Arial;
-        text-align: left;
+        text-align: center;
         vertical-align: top;
     }
   }
