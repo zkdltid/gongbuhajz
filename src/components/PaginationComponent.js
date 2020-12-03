@@ -8,6 +8,8 @@ import {
   vocabularyList,
 } from '../actions';
 
+import { BsSearch } from "react-icons/bs";
+
 import '../styles/paginations.scss';
 
 class PaginationComponent extends React.Component {
@@ -22,9 +24,23 @@ class PaginationComponent extends React.Component {
     this.props.onSelect(event.target.value)
   }
 
+  handleSearch() {
+    alert('Comming Soon!!')
+  }
+
+  handleEnterKey = (e) => {
+    if(e.nativeEvent.keyCode === 13){ 
+         this.handleSearch()
+    }
+}
+
   render() {
     return (
       <div className='pagination-control'>
+        <div className='search-input'>
+          <input placeholder="Search.." onKeyPress={this.handleEnterKey}></input>
+          <button onClick={ this.handleSearch } ><BsSearch className='search-icon'/></button>
+        </div>
         <div className='page-button'>
           <button onClick={this.props.onPrevPage} id='prevPage'>Prev Page</button>
           <button onClick={this.props.onNextPage} id='nextPage'>Next Page</button>
