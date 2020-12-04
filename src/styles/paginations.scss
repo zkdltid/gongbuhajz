@@ -3,7 +3,9 @@
     display: table;
     color: rgb(0, 0, 0);
     .page-button {
-      @extend .size-control;
+      display: table-cell;
+      vertical-align: middle;
+      padding-right: 15px;
   
       button {
           color: rgb(0, 0, 0);
@@ -20,14 +22,13 @@
           background-color: #c8c8c8;
         }
       }
-      .size-control {
-          display: table-cell;
-          vertical-align: middle;
-          padding-right: 15px;
-      }
+    .page-size-select-wrapper {
+        @extend .page-button;
+        min-width: 80px;
+    }
       
       .page-info {
-          @extend .size-control;
+          @extend .page-button;
       }
   }
   

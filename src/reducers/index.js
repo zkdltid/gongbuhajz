@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import reducer from './paginations';
+// import { pageReducer, sizeReducer, searchKeywordReducer } from './paginations';
 import listReducer from './vocabularyList';
-import sizeReducer from './size';
+// import sizeReducer from './size';
 const rootReducer = combineReducers({
-    reducer,
-    sizeReducer,
+    // searchKeywordReducer,
+    // pageReducer,
+    // sizeReducer,
     listReducer,
 });
 
