@@ -16,7 +16,10 @@ class ListRow extends Component {
 
                     <div className='table-cell'>{list.詞彙}</div>
                     <div className='table-cell'>{list.中文}</div>
-                    <div className='table-cell'>{list.補充}</div>
+                    <div className='table-cell'>
+                        {   list.補充.map((k,index) => (
+                            <span key={index}>{k}<br/></span>))}
+                    </div>
                 </div>
             ))
         } else
