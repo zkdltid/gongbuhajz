@@ -8,11 +8,15 @@ class ListRow extends Component {
         if (data.data_list) {
             tableData = data.data_list.map((list, index) => (
                 <div className='table-row' id='table-body' key={index}>
-                    <div className='table-cell'>{list.수준}</div>
+                    {/* <div className='table-cell'>{list.수준}</div>
                     <div className='table-cell'>{list.詞彙}</div>
                     <div className='table-cell'>{list.어휘}</div>
                     <div className='table-cell'>{list.길잡이말}</div>
-                    <div className='table-cell'>{list.품사}</div>
+                    <div className='table-cell'>{list.품사}</div> */}
+
+                    <div className='table-cell'>{list.詞彙}</div>
+                    <div className='table-cell'>{list.中文}</div>
+                    <div className='table-cell'>{list.補充}</div>
                 </div>
             ))
         } else
