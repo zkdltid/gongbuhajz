@@ -1,12 +1,19 @@
-.table {
-  display: table;
-  width: 100%;
-  .table-row {
-    display: table-row;
-    .table-cell:first-child{
+.table-container {
+    padding: 3px 3px 3px 3px;
+  .table {
+    display: table;
+    width: 100%;
+    #table-header {
+        background-color: #b1b4b8;
+        border-top-left-radius: 0.5px;
+        color: white;
+      }
+    .table-row {
+      display: table-row;
+      .table-cell:first-child {
         width: 5%;
-    }
-    .table-cell {
+      }
+      .table-cell {
         width: 20%;
         display: table-cell;
         border-right: 2px solid #fff;
@@ -17,15 +24,11 @@
         font-family: Arial;
         text-align: center;
         vertical-align: top;
+      }
     }
-  }
-  .table-row:hover {
-    background-color: rgb(202, 242, 243);
+    .table-row:hover {
+      background-color: rgb(202, 242, 243);
+    }
   }
 }
 
-#table-header {
-  background-color: #b1b4b8;
-  border-top-left-radius: 0.5px;
-  color: white;
-}

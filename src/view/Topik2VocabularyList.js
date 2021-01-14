@@ -2,12 +2,12 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react';
 
-import SearchInput from "./Pagination/SearchInput";
-import PageSizeSelect from "./Pagination/PageSizeSelect";
-import PageIndexButton from "./Pagination/PageIndexButton";
+import SearchInput from "../components/Pagination/SearchInput";
+import PageSizeSelect from "../components/Pagination/PageSizeSelect";
+import PageIndexButton from "../components/Pagination/PageIndexButton";
 
-import ListHeader from "./ListView/ListHeader"
-import ListRow from "./ListView/ListRow"
+import ListHeader from "../components/ListView/ListHeader"
+import ListRow from "../components/ListView/ListRow"
 import '../styles/table.scss';
 import '../styles/paginations.scss';
 
@@ -16,7 +16,7 @@ import {
 } from '../actions';
 
 
-class App extends Component {
+class Topik2VocabularyList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,7 +34,6 @@ class App extends Component {
     this.onPrevPage = this.onPrevPage.bind(this);
     this.onNextPage = this.onNextPage.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
-    this.onKeyPressEnter = this.onKeyPressEnter.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -92,12 +91,6 @@ class App extends Component {
     })
   }
 
-  onKeyPressEnter = (event) => {
-    event.preventDefault();
-    if(event.nativeEvent.keyCode === 13){ 
-    this.featchList()
-    }
-  }
   onSubmit = (event) => {
     event.preventDefault();
     this.featchList()
@@ -109,11 +102,11 @@ class App extends Component {
     return (
       <div>
         <div className='pagination-control'>
-          <SearchInput onSubmit={ this.onSubmit } onKeyPress={ this.onKeyPressEnter } onChange={ this.onInputChange }/>
+          <SearchInput onSubmit={ this.onSubmit } onChange={ this.onInputChange }/>
           <PageIndexButton onPrevPage={ this.onPrevPage } onNextPage={ this.onNextPage } />
           <PageSizeSelect onChange={ this.handleSelect } />
         </div>
-        <div>
+        <div className='table-container'>
           <ListHeader/>
           <ListRow data={ data }/>
         </div>
@@ -124,8 +117,6 @@ class App extends Component {
 
 // 取得該container需要的值
 const mapStateToProps = (state,ownProps) => ({
-  // page_index : state.pageReducer.page_index,
-  // size : state.sizeReducer.size,
   data : state.listReducer.data,
 })
 
@@ -137,4 +128,4 @@ const mapDispatchToProps = (dispatch,ownProps) => ({
 });
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(App)
+export default connect(mapStateToProps,mapDispatchToProps)(Topik2VocabularyList)

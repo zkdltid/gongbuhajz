@@ -1,18 +1,18 @@
 .pagination-control {
-    /* width: 100%; */
+    padding: 3px 3px 3px 3px;
     display: table;
     color: rgb(0, 0, 0);
+
     .page-button {
       display: table-cell;
-      vertical-align: middle;
+    //   vertical-align: middle;
       padding-right: 15px;
-  
       button {
           color: rgb(0, 0, 0);
           border: 1px solid #c7c7c7;
           background-color: #f3f2f2;
           border-radius: 10px;
-          padding: 3px 3px 3px 3px;
+        //   padding: 3px 3px 3px 3px;
           font-family: sans-serif;
           margin-left: 5px;
       }
@@ -26,25 +26,32 @@
         @extend .page-button;
         min-width: 80px;
     }
-      
       .page-info {
           @extend .page-button;
       }
-  }
-  
-.search-input{
-    padding: 3px 3px 3px 3px;
-    button {
-    background-color: #f3f2f2;
-    border: 1px solid #c7c7c7;
-    .search-icon{
-        color: rgb(0, 0, 0);
-        vertical-align: middle;
+      .search-input{
+        @extend .page-button;
+        // padding: 0px;
+        form {
+        }
+        font-size: inherit;
+        // position:relative;
+        input {
+            // font-size: inherit;
+            // position:absolute;
+            // @extend .page-button;
+            // padding: 0px;
+        }
+        button {
+            // font-size: inherit;
+            margin-left: 0px;
+            border-radius: 0px;
+        .search-icon{
+            color: rgb(0, 0, 0);
+            vertical-align: middle;
+            }
         }
     }
-    button:hover {
-        border: 1px solid #c7c7c7;
-        background-color: #c8c8c8;
-    }
-}
+  }
+
 
