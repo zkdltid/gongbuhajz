@@ -137,7 +137,7 @@ class Topik2VocabularyList extends Component {
   render() {
     const { data } = this.props
     const { korean } = this.state.show
-    const { chinese } = this.state.show
+    // const { chinese } = this.state.show
     const { explain } = this.state.show
     return (
       <div>
@@ -145,11 +145,14 @@ class Topik2VocabularyList extends Component {
           <SearchInput onSubmit={ this.onSubmit } onChange={ this.onInputChange }/>
           <PageIndexButton onPrevPage={ this.onPrevPage } onNextPage={ this.onNextPage } />
           <PageSizeSelect onChange={ this.handleSelect } />
-          <FilterCheckBox onFilterChange={ this.onFilterChange } koreanState={ korean } chineseState={ chinese } explainState={ explain }  />
+          {/* <FilterCheckBox onFilterChange={ this.onFilterChange } koreanState={ korean } chineseState={ chinese } explainState={ explain }  /> */}
+          <FilterCheckBox onFilterChange={ this.onFilterChange } koreanState={ korean } explainState={ explain }  />
         </div>
         <div className='table-container'>
-          <ListHeader/>
-          <ListRow data={ data } korean={ korean } chinese={ chinese } explain={ explain }/>
+          <ListHeader korean={ korean } explain={ explain }/>
+          <ListRow data={ data } korean={ korean } explain={ explain }/>
+          {/* <ListHeader korean={ korean } chinese={ chinese } explain={ explain }/>
+          <ListRow data={ data } korean={ korean } chinese={ chinese } explain={ explain }/> */}
         </div>
       </div>
     )

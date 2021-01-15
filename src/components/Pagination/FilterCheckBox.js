@@ -11,18 +11,18 @@ class FilterCheckBox extends Component {
             onChange={this.props.onFilterChange}
             checked={ this.props.koreanState }
           />單字
-          <input
+          {/* <input
             type="checkbox"
             value="chinese"
             onChange={ this.props.onFilterChange }
             checked={ this.props.chineseState }
-          />中文
+          />中文 */}
           <input
             type="checkbox"
             value="explain"
             onChange={ this.props.onFilterChange }
             checked={ this.props.explainState }
-          />補充
+          />解釋
 
         </div>
     );

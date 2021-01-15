@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 
 class ListHeader extends Component {
     render() {
+        const { korean } = this.props
+        // const { chinese } = this.props
+        const { explain } = this.props
         return (
         <div className='table'>
             <div className='table-row' id='table-header'>
@@ -13,9 +16,9 @@ class ListHeader extends Component {
                 <div className='table-cell'>품사</div> */}
 
                 
-                <div className='table-cell'>單字</div>
-                <div className='table-cell'>中文</div>
-                <div className='table-cell'>補充</div>
+                {korean ? <div className='table-cell'>單字</div>:""}
+                {explain ? <div className='table-cell'>中文</div>:""}
+                {explain ? <div className='table-cell'>補充</div>:""}
 
             </div>
         </div>
