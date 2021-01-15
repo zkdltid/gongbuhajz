@@ -14,7 +14,7 @@ class ListRow extends Component {
                     <div className='table-cell'>{list.길잡이말}</div>
                     <div className='table-cell'>{list.품사}</div> */}
 
-                    <div className='table-cell'>{list.詞彙}</div>
+                    <div className='table-cell'>{list.單字}</div>
                     <div className='table-cell'>{list.中文}</div>
                     <div className='table-cell'>
                         {   list.補充.map((k,index) => (

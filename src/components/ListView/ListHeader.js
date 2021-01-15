@@ -13,7 +13,7 @@ class ListHeader extends Component {
                 <div className='table-cell'>품사</div> */}
 
                 
-                <div className='table-cell'>詞彙</div>
+                <div className='table-cell'>單字</div>
                 <div className='table-cell'>中文</div>
                 <div className='table-cell'>補充</div>
 
