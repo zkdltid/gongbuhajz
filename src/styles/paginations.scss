@@ -1,6 +1,7 @@
 .pagination-control {
-    padding: 3px 3px 3px 3px;
-    // display: table;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+    min-width: 65em;
+    overflow: auto;
     display: flex;
     align-items:center;
     color: rgb(0, 0, 0);
@@ -16,14 +17,14 @@
     .page-button {
       // display: table-cell;
       vertical-align: middle;
-      padding-right: 15px;
+      padding-right: 1em;
       button {
           color: rgb(0, 0, 0);
           border: 1px solid #c7c7c7;
           background-color: #f3f2f2;
-          border-radius: 10px;
+          border-radius: 0.62em;
           font-family: sans-serif;
-          margin-right: 10px;
+          margin-right: 0.62em;
       }
       button:hover {
           color: rgb(0, 0, 0);
@@ -33,7 +34,7 @@
       }
     .page-size-select-wrapper {
         @extend .page-button;
-        min-width: 80px;
+        min-width: 5.3em;
     }
       .page-info {
           @extend .page-button;

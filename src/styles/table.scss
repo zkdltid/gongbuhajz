@@ -1,5 +1,7 @@
 .table-container {
-    padding: 3px 3px 3px 3px;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+    overflow: auto;
+    min-width: 65em;
   .table {
     display: table;
     width: 100%;
@@ -14,11 +16,11 @@
         width: 20%;
         display: table-cell;
         border-right: 2px solid #fff;
-        height: 30px;
-        min-height: 30px;
+        height: 1.4em;
+        min-height: 1.4em;
         border-collapse: collapse;
-        padding: 3px 3px 3px 3px;
-        font-size: 20px;
+        padding: 0.2em 0.2em 0.2em 0.2em;
+        font-size: 1.33em;
         font-family: Arial;
         text-align: left;
         vertical-align: top;
