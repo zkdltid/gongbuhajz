@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 import SearchInput from "../components/Pagination/SearchInput";
 import PageSizeSelect from "../components/Pagination/PageSizeSelect";
 import PageIndexButton from "../components/Pagination/PageIndexButton";
+import PageInfo from "../components/Pagination/PageInfo";
 import FilterCheckBox from "../components/Pagination/FilterCheckBox";
-
 import ListHeader from "../components/ListView/ListHeader"
 import ListRow from "../components/ListView/ListRow"
 import '../styles/table.scss';
@@ -169,6 +169,7 @@ class Topik2VocabularyList extends Component {
       <div>
         <div className='pagination-control'>
           <SearchInput onSubmit={ this.onSubmit } onChange={ this.onInputChange }/>
+          <PageInfo data={ data } />
           <PageIndexButton onPrevPage={ this.onPrevPage } onNextPage={ this.onNextPage } />
           <PageSizeSelect onChange={ this.handleSelect } />
           <FilterCheckBox onFilterChange={ this.onFilterChange } onKoreanPracticeChange={ this.onKoreanPracticeChange } onChinesePracticeChange={ this.onChinesePracticeChange } koreanState={ korean } explainState={ explain } koreanPracticeState={ koreanPractice }  chinesePracticeState={ chinesePractice }/>
