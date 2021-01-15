@@ -8,6 +8,9 @@ class ListRow extends Component {
         const { korean } = this.props
         // const { chinese } = this.props
         const { explain } = this.props
+        const { koreanPractice } = this.props
+        const { chinesePractice } = this.props
+
         let tableData;
         if (data.data_list) {
             tableData = data.data_list.map((list, index) => (
@@ -26,11 +29,14 @@ class ListRow extends Component {
                     </div> */}
 
                     {korean ? <div className='table-cell'>{list.單字}</div>:""}
+                    {koreanPractice ? <div className='table-cell'><input /></div>:""}
+                    {chinesePractice ? <div className='table-cell'><input /></div>:""}
                     {explain ? <div className='table-cell'>{list.中文}</div>:""}
                     {explain ? <div className='table-cell'>
                         { list.補充.map((k,index) => (
                             <span key={index}>{k}<br/></span>))}
                     </div>:""}
+                    
                 </div>
             ))
         } else

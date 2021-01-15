@@ -23,8 +23,9 @@ class Topik2VocabularyList extends Component {
     this.state = {
         show: {
           korean:true,
-          chinese:true,
           explain:true,
+          koreanPractice:false,
+          chinesePractice:false,
         },
         queryPayload: {
             search: undefined,
@@ -43,6 +44,8 @@ class Topik2VocabularyList extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.onFilterChange = this.onFilterChange.bind(this);
+    this.onKoreanPracticeChange = this.onKoreanPracticeChange.bind(this);
+    this.onChinesePracticeChange = this.onChinesePracticeChange.bind(this);
   }
 
   componentDidMount(){
@@ -99,34 +102,54 @@ class Topik2VocabularyList extends Component {
     })
   }
   onFilterChange(e){
-    console.log("ttt")
     const key = e.target.value;
-    this.setState(state => ({
+    const { show } = this.state;
+    // show.koreanPractice = false
+    // show.chinesePractice = false
+    this.setState(({
       show: {
-        ...state.show,
-        [key]: !state.show[key]
+        ...show,
+        [key]: !show[key]
       }
     }));
   };
 
-  // onKorean(){
-  //   console.log("a")
-  // }
-  // onChinese(){
-  //   console.log("b")
-  // }
-  // onExplain(){
-  //   console.log("c")
-  // }
-  // onChinese(){
-  //   const { show } = this.state.show
-  //   show.korean != show.korean;
-  //   this.setState({
-  //     show:{
-  //       ...show,
-  //     }
-  //   })
-  // }
+  onKoreanPracticeChange(){
+    const { show } = this.state;
+    show.koreanPractice = !show.koreanPractice
+    if(show.koreanPractice){
+      show.explain = false
+      show.korean = true
+      show.chinesePractice = false
+    }
+    this.setState(({
+      show: {
+        ...show,
+      }
+    
+    }
+    ));
+    console.log(show)
+  };
+
+  onChinesePracticeChange(){
+    const { show } = this.state;
+    console.log(show.chinesePractice)
+    show.chinesePractice = !show.chinesePractice
+    
+    if(show.chinesePractice){
+      show.explain = true
+      show.korean = false
+      show.koreanPractice = false
+    } 
+    this.setState(({
+      show: {
+        ...show,
+      }
+    }
+    ));
+    console.log(show)
+  };
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -137,22 +160,22 @@ class Topik2VocabularyList extends Component {
   render() {
     const { data } = this.props
     const { korean } = this.state.show
-    // const { chinese } = this.state.show
+
     const { explain } = this.state.show
+    const { koreanPractice } = this.state.show
+    const { chinesePractice } = this.state.show
+    
     return (
       <div>
         <div className='pagination-control'>
           <SearchInput onSubmit={ this.onSubmit } onChange={ this.onInputChange }/>
           <PageIndexButton onPrevPage={ this.onPrevPage } onNextPage={ this.onNextPage } />
           <PageSizeSelect onChange={ this.handleSelect } />
-          {/* <FilterCheckBox onFilterChange={ this.onFilterChange } koreanState={ korean } chineseState={ chinese } explainState={ explain }  /> */}
-          <FilterCheckBox onFilterChange={ this.onFilterChange } koreanState={ korean } explainState={ explain }  />
+          <FilterCheckBox onFilterChange={ this.onFilterChange } onKoreanPracticeChange={ this.onKoreanPracticeChange } onChinesePracticeChange={ this.onChinesePracticeChange } koreanState={ korean } explainState={ explain } koreanPracticeState={ koreanPractice }  chinesePracticeState={ chinesePractice }/>
         </div>
         <div className='table-container'>
-          <ListHeader korean={ korean } explain={ explain }/>
-          <ListRow data={ data } korean={ korean } explain={ explain }/>
-          {/* <ListHeader korean={ korean } chinese={ chinese } explain={ explain }/>
-          <ListRow data={ data } korean={ korean } chinese={ chinese } explain={ explain }/> */}
+          <ListHeader korean={ korean } explain={ explain } koreanPractice={ koreanPractice } chinesePractice={ chinesePractice }/>
+          <ListRow data={ data } korean={ korean } explain={ explain } koreanPractice={ koreanPractice } chinesePractice={ chinesePractice }/>
         </div>
       </div>
     )
