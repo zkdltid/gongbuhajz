@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import SearchInput from "../components/Pagination/SearchInput";
 import PageSizeSelect from "../components/Pagination/PageSizeSelect";
 import PageIndexButton from "../components/Pagination/PageIndexButton";
+import FilterCheckBox from "../components/Pagination/FilterCheckBox";
 
 import ListHeader from "../components/ListView/ListHeader"
 import ListRow from "../components/ListView/ListRow"
@@ -20,6 +21,11 @@ class Topik2VocabularyList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+        show: {
+          korean:true,
+          chinese:true,
+          explain:true,
+        },
         queryPayload: {
             search: undefined,
             // filter: {
@@ -35,6 +41,8 @@ class Topik2VocabularyList extends Component {
     this.onNextPage = this.onNextPage.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+
+    this.onFilterChange = this.onFilterChange.bind(this);
   }
 
   componentDidMount(){
@@ -90,6 +98,35 @@ class Topik2VocabularyList extends Component {
       }
     })
   }
+  onFilterChange(e){
+    console.log("ttt")
+    const key = e.target.value;
+    this.setState(state => ({
+      show: {
+        ...state.show,
+        [key]: !state.show[key]
+      }
+    }));
+  };
+
+  // onKorean(){
+  //   console.log("a")
+  // }
+  // onChinese(){
+  //   console.log("b")
+  // }
+  // onExplain(){
+  //   console.log("c")
+  // }
+  // onChinese(){
+  //   const { show } = this.state.show
+  //   show.korean != show.korean;
+  //   this.setState({
+  //     show:{
+  //       ...show,
+  //     }
+  //   })
+  // }
 
   onSubmit = (event) => {
     event.preventDefault();
@@ -99,16 +136,20 @@ class Topik2VocabularyList extends Component {
 
   render() {
     const { data } = this.props
+    const { korean } = this.state.show
+    const { chinese } = this.state.show
+    const { explain } = this.state.show
     return (
       <div>
         <div className='pagination-control'>
           <SearchInput onSubmit={ this.onSubmit } onChange={ this.onInputChange }/>
           <PageIndexButton onPrevPage={ this.onPrevPage } onNextPage={ this.onNextPage } />
           <PageSizeSelect onChange={ this.handleSelect } />
+          <FilterCheckBox onFilterChange={ this.onFilterChange } koreanState={ korean } chineseState={ chinese } explainState={ explain }  />
         </div>
         <div className='table-container'>
           <ListHeader/>
-          <ListRow data={ data }/>
+          <ListRow data={ data } korean={ korean } chinese={ chinese } explain={ explain }/>
         </div>
       </div>
     )

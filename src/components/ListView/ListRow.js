@@ -2,8 +2,12 @@
 import React, { Component } from 'react';
 
 class ListRow extends Component {
+
     render() {
         const { data } = this.props
+        const { korean } = this.props
+        const { chinese } = this.props
+        const { explain } = this.props
         let tableData;
         if (data.data_list) {
             tableData = data.data_list.map((list, index) => (
@@ -14,11 +18,11 @@ class ListRow extends Component {
                     <div className='table-cell'>{list.길잡이말}</div>
                     <div className='table-cell'>{list.품사}</div> */}
 
-                    <div className='table-cell'>{list.單字}</div>
-                    <div className='table-cell'>{list.中文}</div>
+                    <div className='table-cell'>{korean ? list.單字:" "}</div>
+                    <div className='table-cell'>{chinese ? list.中文:" "}</div>
                     <div className='table-cell'>
-                        {   list.補充.map((k,index) => (
-                            <span key={index}>{k}<br/></span>))}
+                        { explain ? list.補充.map((k,index) => (
+                            <span key={index}>{k}<br/></span>)):""}
                     </div>
                 </div>
             ))
@@ -26,6 +30,8 @@ class ListRow extends Component {
             {
             tableData = <div>Loading...</div>;
         }
+
+
         return (
             <div className='table'>
                 {tableData}
