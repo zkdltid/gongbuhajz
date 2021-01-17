@@ -1,0 +1,13 @@
+.filter-bar {
+    padding: 0.2em 0.2em 0.2em 0.2em;
+    min-width: 65em;
+    display: flex;
+    .filter-checkbox {
+        input:first-child {
+            margin-left: 0px;
+        }
+        input {
+            margin-left: 0.3em;
+        }
+    }
+}

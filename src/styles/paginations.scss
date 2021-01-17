@@ -1,67 +1,58 @@
 .pagination-control {
     padding: 0.2em 0.2em 0.2em 0.2em;
     min-width: 65em;
-    overflow: auto;
     display: flex;
-    align-items:center;
+    align-items:center ;
     color: rgb(0, 0, 0);
-    .page-info {
-      span {
-        color: rgb(110, 110, 110);
-      }
-      span:hover { 
-        color: rgb(105, 102, 102);
-      }
-    }
-    
-    .page-button {
-      // display: table-cell;
+    .search-input {
       vertical-align: middle;
       padding-right: 1em;
+      input {
+        border: 0.1em solid #c7c7c7;
+        font-family: sans-serif;
+      }
       button {
           color: rgb(0, 0, 0);
-          border: 1px solid #c7c7c7;
+          border: 0.1em solid #c7c7c7;
           background-color: #f3f2f2;
-          border-radius: 0.62em;
           font-family: sans-serif;
-          margin-right: 0.62em;
       }
       button:hover {
           color: rgb(0, 0, 0);
           border: 1px solid #c7c7c7;
           background-color: #c8c8c8;
         }
-      }
-    .page-size-select-wrapper {
-        @extend .page-button;
-        min-width: 5.3em;
     }
-      .page-info {
-          @extend .page-button;
+    .pagination-container {
+      .pagination {
+        margin:0em;
+        margin-right: 0.62em;
+        list-style: none;
+        li {
+          border: 1px solid #ddd;
+          min-width: 2em;
+          height: 2em;
+          text-align: center;
+          a {
+            text-decoration: none;
+            color: rgb(97, 97, 97);
+          }
+        }
+        li.active {
+          a {
+            color: rgb(184, 179, 179);
+          }
+          
+        }
       }
-      .search-input{
-        @extend .page-button;
-        // padding: 0px;
-        form {
-        }
-        font-size: inherit;
-        // position:relative;
-        input {
-            // font-size: inherit;
-            // position:absolute;
-            // @extend .page-button;
-            // padding: 0px;
-        }
-        button {
-            // font-size: inherit;
-            margin-left: 0px;
-            border-radius: 0px;
-        .search-icon{
-            color: rgb(0, 0, 0);
-            vertical-align: middle;
-            }
-        }
+    }
+
+    .page-size-select-wrapper {
+      min-width: 5.3em;
+      
+      margin-right: 0.62em;
     }
   }
+  
 
 

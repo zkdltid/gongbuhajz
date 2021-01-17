@@ -4,11 +4,13 @@ import React, { Component } from 'react';
 
 import SearchInput from "../components/Pagination/SearchInput";
 import PageSizeSelect from "../components/Pagination/PageSizeSelect";
-import PageIndexButton from "../components/Pagination/PageIndexButton";
-import PageInfo from "../components/Pagination/PageInfo";
+// import PageIndexButton from "../components/Pagination/PageIndexButton";
+import PaginationSelect from "../components/Pagination/PaginationSelect";
+// import PageInfo from "../components/Pagination/PageInfo";
 import FilterCheckBox from "../components/Pagination/FilterCheckBox";
 import ListHeader from "../components/ListView/ListHeader"
 import ListRow from "../components/ListView/ListRow"
+import '../styles/filter.scss';
 import '../styles/table.scss';
 import '../styles/paginations.scss';
 
@@ -38,14 +40,13 @@ class Topik2VocabularyList extends Component {
         },
     };
     this.handleSelect = this.handleSelect.bind(this);
-    this.onPrevPage = this.onPrevPage.bind(this);
-    this.onNextPage = this.onNextPage.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.onFilterChange = this.onFilterChange.bind(this);
     this.onKoreanPracticeChange = this.onKoreanPracticeChange.bind(this);
     this.onChinesePracticeChange = this.onChinesePracticeChange.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   componentDidMount(){
@@ -62,25 +63,16 @@ class Topik2VocabularyList extends Component {
         }
     }, this.featchList);
   }
-  onPrevPage() {
+  handlePageChange(pageNumber) {
     const { queryPayload } = this.state;
-    queryPayload.page_index = queryPayload.page_index-1;
+    queryPayload.page_index = pageNumber;
     this.setState({
         queryPayload: {
             ...queryPayload,
         }
     }, this.featchList);
   }
-
-  onNextPage() {
-    const { queryPayload } = this.state;
-    queryPayload.page_index = queryPayload.page_index+1;
-    this.setState({
-        queryPayload: {
-            ...queryPayload,
-        }
-    }, this.featchList);
-  }
+  
 
   featchList = () => {
     const { queryPayload } = this.state;
@@ -167,12 +159,14 @@ class Topik2VocabularyList extends Component {
     
     return (
       <div>
+        <div className='filter-bar'>
+          <FilterCheckBox onFilterChange={ this.onFilterChange } onKoreanPracticeChange={ this.onKoreanPracticeChange } onChinesePracticeChange={ this.onChinesePracticeChange } koreanState={ korean } explainState={ explain } koreanPracticeState={ koreanPractice }  chinesePracticeState={ chinesePractice }/>
+        </div>
         <div className='pagination-control'>
           <SearchInput onSubmit={ this.onSubmit } onChange={ this.onInputChange }/>
-          <PageInfo data={ data } />
-          <PageIndexButton onPrevPage={ this.onPrevPage } onNextPage={ this.onNextPage } />
+          {/* <PageInfo data={ data } /> */}
           <PageSizeSelect onChange={ this.handleSelect } />
-          <FilterCheckBox onFilterChange={ this.onFilterChange } onKoreanPracticeChange={ this.onKoreanPracticeChange } onChinesePracticeChange={ this.onChinesePracticeChange } koreanState={ korean } explainState={ explain } koreanPracticeState={ koreanPractice }  chinesePracticeState={ chinesePractice }/>
+          <PaginationSelect handlePageChange={ this.handlePageChange } total={ data.total } activePage={ data.page_index } />
         </div>
         <div className='table-container'>
           <ListHeader korean={ korean } explain={ explain } koreanPractice={ koreanPractice } chinesePractice={ chinesePractice }/>
